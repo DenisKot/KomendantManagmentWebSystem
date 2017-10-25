@@ -1,0 +1,45 @@
+﻿<md-dialog style="min-width:400px; max-width:400px">
+    <form name="editForm" class="editForm">
+        <md-toolbar style="border-bottom:1px solid">
+            <div class="md-toolbar-tools" style="background-color: white; color:black;">
+                <h4 ng-bind="::title"></h4>
+                <span flex="" class="flex"></span>
+                <md-button class="md-icon-button" ng-click="close()">
+                    <i class="material-icons">&#xE5CD;</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="md-dialog-content" layout-wrap layout="row" style="padding-top:0px;">
+            <md-input-container class="standart-width" flex="100">
+                <label style="margin-bottom: 0px;">Назва</label>
+                <input name="name" ng-model="item.name" ng-change="showButtonsMethod();" ng-required="true" />
+                <div ng-messages="editForm.name.$error" ng-if="editForm.name.$touched">
+                    <div ng-message="required">Обов'язкове поле</div>
+                </div>
+            </md-input-container>
+            <div ng-if="error" layout="column" layout-align="center start">
+                <span class="error-color-style" ng-repeat="errorObj in error.validationErrors" ng-bind="::errorObj.message"></span>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions class="md-dialog-content" style="padding-top:0px; display:block; min-height:1px;" layout="row">
+            <div class="button-container" flex="100" layout="column" style="display: block;">
+                <div class="pull-left">
+                    <button type="button" class="btn btn-danger delete-button" style="outline:none;" ng-if="item.id!=0" ng-hide="notDeleted" ng-click="delete()">
+                        Видалити
+                    </button>
+                </div>
+                <div class="pull-right">
+                    <span style="cursor:pointer;outline:none;color: black;" ng-if="showButtons" ng-click="reset();"><i class="fa fa-undo"></i></span>
+                    <button type="button" ng-if="showButtons" ng-disabled="!editForm.$valid" class="btn save-button" style="outline:none;" ng-click="save();">
+                        Зберегти
+                    </button>
+                </div>
+            </div>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+
+
+
+
+

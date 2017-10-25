@@ -1,11 +1,23 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="komendant">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title - Робоче місце коменданта</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/angular-material.min.css">
+    <link rel="stylesheet" href="~/Content/Site.css">
+    @*<link rel="stylesheet" href="~/Content/font-awesome.min.css">*@
+    <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
+
+        @Scripts.Render("~/bundles/modernizr")
+        <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-animate.min.js"></script>
+    <script src="~/Scripts/angular-aria.min.js"></script>
+    <script src="~/Scripts/angular-messages.min.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-material.min.js"></script>
+    <script src="~/Content/main.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -16,13 +28,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Робоче місце коменданта", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Кімнати", "Rooms", "Home")</li>
+                    <li>@Html.ActionLink("Люди", "Persons", "Home")</li>
                 </ul>
             </div>
         </div>
@@ -31,12 +42,11 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Котенко Денис 415ПІ</p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>

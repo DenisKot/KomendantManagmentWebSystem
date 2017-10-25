@@ -12,18 +12,14 @@ namespace KomendantWebApp.Controllers
         {
             return View();
         }
-
-        public ActionResult About()
+        
+        public ActionResult Rooms()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Persons()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
