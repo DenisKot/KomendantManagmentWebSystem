@@ -21,7 +21,7 @@
             <td>{{$index + 1}}</td>
             <td>{{item.name}}</td>
             <td>{{item.capacity}}</td>
-            <td></td>
+            <td><span ng-repeat="person in item.persons">{{person.name}}{{$last == false ? ',' : ''}}</span></td>
         </tr>
         </tbody>
     </table>

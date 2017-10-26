@@ -14,6 +14,13 @@
         {
             return new RoomRepository().GetAll();
         }
+        
+        [HttpGet]
+        [Route("api/room/search")]
+        public IEnumerable<SimpleDto> Search(string q)
+        {
+            return new RoomRepository().Search(q);
+        }
 
         [HttpPost]
         [Route("api/room/save")]

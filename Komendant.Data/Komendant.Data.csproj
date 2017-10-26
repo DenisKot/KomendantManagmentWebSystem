@@ -70,6 +70,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Configuration.cs" />
+    <Compile Include="Services\PersonRepository.cs" />
     <Compile Include="Services\RoomRepository.cs" />
   </ItemGroup>
   <ItemGroup>

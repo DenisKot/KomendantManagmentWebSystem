@@ -23,6 +23,23 @@
             }
         }
 
+        public IEnumerable<SimpleDto> Search(string searchString)
+        {
+            using (var context = new AppDbContext())
+            {
+                var query = context.Rooms.AsQueryable();
+
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    query = query.Where(x => x.Name.ToLower().Contains(searchString.ToLower()));
+                }
+
+                query = query.Take(() => 10);
+                var res = query.ToList();
+                return Mapper.Map<IEnumerable<SimpleDto>>(res);
+            }
+        }
+
         public void Save(RoomDto dtoModel)
         {
             using (var context = new AppDbContext())
