@@ -1,4 +1,4 @@
-﻿namespace KomendantWebApp.App_Data.Domain
+﻿namespace Komendant.Data.Domain
 {
     using System.ComponentModel.DataAnnotations;
 

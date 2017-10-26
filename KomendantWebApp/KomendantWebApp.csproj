@@ -153,13 +153,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Data\Domain\BaseEntity.cs" />
-    <Compile Include="App_Data\Domain\Person.cs" />
-    <Compile Include="App_Data\Domain\Room.cs" />
+    <Compile Include="App_Data\BaseDto.cs" />
+    <Compile Include="App_Data\PersonDto.cs" />
+    <Compile Include="App_Data\RoomDto.cs" />
+    <Compile Include="App_Data\SimpleDto.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\RoomController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -214,8 +216,6 @@
     <Content Include="Views\Home\Persons.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\Data\" />
-    <Folder Include="App_Data\Services\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +232,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Komendant.Data\Komendant.Data.csproj">
+      <Project>{0E4FFD63-9F34-4320-8050-D5BBC68141C2}</Project>
+      <Name>Komendant.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

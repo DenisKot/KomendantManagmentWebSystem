@@ -14,6 +14,10 @@
                 <label style="margin-bottom: 0px;">Назва</label>
                 <input name="name" ng-model="item.name" ng-change="showButtonsMethod();" ng-required="true" />
             </md-input-container>
+            <md-input-container class="standart-width" flex="100">
+                <label style="margin-bottom: 0px;">Вмістимість</label>
+                <input name="capacity" ng-model="item.capacity" ng-change="showButtonsMethod();" ng-required="true" />
+            </md-input-container>
             <div ng-if="error" layout="column" layout-align="center start">
                 <span class="error-color-style" ng-repeat="errorObj in error.validationErrors" ng-bind="::errorObj.message"></span>
             </div>

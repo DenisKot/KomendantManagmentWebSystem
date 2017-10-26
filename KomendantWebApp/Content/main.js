@@ -1,10 +1,10 @@
 ﻿var app = angular.module('komendant', ['ngMaterial', 'ngRoute']);
 
-app.controller('RoomController', ['$scope', '$mdDialog', function ($scope, $mdDialog) {
+app.controller('RoomController', ['$scope', '$mdDialog', '$http', '$timeout', function ($scope, $mdDialog, $http, $timeout) {
     $scope.list = [
-        { id: 1, name: "111", capacity: "4"},
-        { id: 3, name: "112", capacity: "4"},
-        { id: 2, name: "113", capacity: "4"}
+        //{ id: 1, name: "111", capacity: "4"},
+        //{ id: 3, name: "112", capacity: "4"},
+        //{ id: 2, name: "113", capacity: "4"}
     ];
 
     $scope.modify = function (item) {
@@ -31,19 +31,28 @@ app.controller('RoomController', ['$scope', '$mdDialog', function ($scope, $mdDi
     $scope.open = function () {
         var editableType = {
             'id': 0,
-            'name': null
+            'name': null,
+            'capacity': '4'
         }
         $scope.modify(editableType);
     }
 
     function refresh() {
-        
+        $http({
+            method: 'GET',
+            url: '/api/room/getAll'
+        }).then(function successCallback(response) {
+            $timeout(function () {
+                $scope.list = response.data;
+            });
+        }, function errorCallback(response) {
+        });
     }
     refresh();
 }]);
 
-app.controller('RoomEditController', ['$scope', '$mdDialog', 'refresh', 'title', 'item',
-    function ($scope, $mdDialog, refresh, title, item) {
+app.controller('RoomEditController', ['$scope', '$mdDialog', 'refresh', 'title', 'item', '$http',
+    function ($scope, $mdDialog, refresh, title, item, $http) {
         var vm = $scope;
         vm.title = title;
         vm.error = null;
@@ -54,13 +63,29 @@ app.controller('RoomEditController', ['$scope', '$mdDialog', 'refresh', 'title',
         vm.item = copyObj(item);
 
         vm.save = function () {
-            alert('save');
-            refresh();
-            $scope.close();
+            $http({
+                method: 'POST',
+                url: '/api/room/save',
+                data: vm.item
+            }).then(function successCallback(response) {
+                refresh();
+                $scope.close();
+                }, function errorCallback(response) {
+                alert('Error');
+            });
         };
 
         vm.delete = function () {
-            alert('delete');
+            $http({
+                method: 'POST',
+                url: '/api/room/delete',
+                data: vm.item
+            }).then(function successCallback(response) {
+                refresh();
+                $scope.close();
+            }, function errorCallback(response) {
+                alert('Error');
+            });
         };
 
         vm.reset = function () {
