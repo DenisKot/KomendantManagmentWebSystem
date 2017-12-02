@@ -15,44 +15,23 @@
                 <input name="name" ng-model="item.name" ng-change="showButtonsMethod();" ng-required="true" />
             </md-input-container>
             <md-input-container class="standart-width" flex="100">
-                <label style="margin-bottom: 0px;">Дата заселення</label>
-                <input name="date" ng-model="item.date" ng-change="showButtonsMethod();"/>
+                <label style="margin-bottom: 0px;">Дата</label>
+                <div moment-picker="item.date"
+                    format="YYYY-MM-DD"
+                    max-view="month">
+                    <input name="date" 
+                           ng-model="item.date" 
+                           ng-change="showButtonsMethod();"/>
+                </div>
             </md-input-container>
             <md-input-container class="standart-width" flex="100">
-                <label style="margin-bottom: 0px;">Оплатив</label>
-                <br/>
-                <md-checkbox ng-model="item.isPayed" ng-change="showButtonsMethod();" aria-label="Checkbox 1">
-                </md-checkbox>
+                <label style="margin-bottom: 0px;">Прибуток</label>
+                <input name="name" ng-model="item.profit" ng-change="showButtonsMethod();" />
             </md-input-container>
-            <label style="margin-bottom: 0px;">Приміщення</label>
-            <br/>
-            <md-autocomplete flex="100"
-                             md-clear-button="true"
-                             md-autocomplete-snap="width"
-                             md-min-length="0"
-                             md-require-match="true"
-                             md-input-name="room"
-                             md-no-cache="true"
-                             md-selected-item="item.room"
-                             md-delay="500"
-                             md-search-text="searchText"
-                             md-items="item in getRooms(searchText)"
-                             md-selected-item-change="showButtonsMethod()"
-                             md-item-text="item.name"
-                             md-select-on-match="true"
-                             translated-label="Кімната"
-                             md-floating-label=".">
-                <md-item-template>
-                    <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.name}}</span>
-                </md-item-template>
-
-                <md-not-found>
-                    Нічого не знайдено
-                </md-not-found>
-            </md-autocomplete>
-            <div ng-if="error" layout="column" layout-align="center start">
-                <span class="error-color-style" ng-repeat="errorObj in error.validationErrors" ng-bind="::errorObj.message"></span>
-            </div>
+            <md-input-container class="standart-width" flex="100">
+                <label style="margin-bottom: 0px;">Витрати</label>
+                <input name="name" ng-model="item.cost" ng-change="showButtonsMethod();" />
+            </md-input-container>
         </md-dialog-content>
         <md-dialog-actions class="md-dialog-content" style="padding-top:0px; display:block; min-height:1px;" layout="row">
             <div class="button-container" flex="100" layout="column" style="display: block;">

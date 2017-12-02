@@ -6,17 +6,24 @@
     <title>@ViewBag.Title - Робоче місце коменданта</title>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/angular-material.min.css">
+    <link rel="stylesheet" href="~/Content/angular-material.min.css">
+    <link rel="stylesheet" href="~/Content/angular-moment-picker.min.css">
     <link rel="stylesheet" href="~/Content/Site.css">
     @*<link rel="stylesheet" href="~/Content/font-awesome.min.css">*@
     <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
 
-        @Scripts.Render("~/bundles/modernizr")
+            @Scripts.Render("~/bundles/modernizr")
         <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/angular-animate.min.js"></script>
     <script src="~/Scripts/angular-aria.min.js"></script>
     <script src="~/Scripts/angular-messages.min.js"></script>
     <script src="~/Scripts/angular-route.js"></script>
     <script src="~/Scripts/angular-material.min.js"></script>
+    <script src="~/Scripts/moment-with-locales.js"></script>
+    <script src="~/Scripts/angular-moment-picker.min.js"></script>
+    <script src="~/Scripts/Chart.js"></script>
+    <script src="~/Scripts/regression.min.js"></script>
+    <script src="~/Scripts/angular-chart.min.js"></script>
     <script src="~/Content/main.js"></script>
 </head>
 <body>
@@ -28,12 +35,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Робоче місце коменданта", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Аналіз підприємства", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Кімнати", "Rooms", "Home")</li>
-                    <li>@Html.ActionLink("Люди", "Persons", "Home")</li>
+                    <li>@Html.ActionLink("Приміщення", "Rooms", "Home")</li>
+                    <li>@Html.ActionLink("Персонал", "Persons", "Home")</li>
+                    <li>@Html.ActionLink("Фінансові показники", "Period", "Home")</li>
                 </ul>
             </div>
         </div>

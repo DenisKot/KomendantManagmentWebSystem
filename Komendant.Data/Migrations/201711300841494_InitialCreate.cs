@@ -8,6 +8,18 @@ namespace Komendant.Data.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.PeriodInfoes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Date = c.DateTime(nullable: false),
+                        Name = c.String(),
+                        Profit = c.Double(nullable: false),
+                        Cost = c.Double(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.People",
                 c => new
                     {
@@ -39,6 +51,7 @@ namespace Komendant.Data.Migrations
             DropIndex("dbo.People", new[] { "Room_Id" });
             DropTable("dbo.Rooms");
             DropTable("dbo.People");
+            DropTable("dbo.PeriodInfoes");
         }
     }
 }

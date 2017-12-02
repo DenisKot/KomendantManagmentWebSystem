@@ -13,7 +13,7 @@ namespace Komendant.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201710252001068_InitialCreate"; }
+            get { return "201711300841494_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

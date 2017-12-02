@@ -1,0 +1,103 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Кімнати";
+}
+
+<h2>Фінансові показники</h2>
+<div ng-controller="PeriodController">
+    <a href="#" class="btn btn-primary" ng-click="open()">Додати</a>
+    <table class="table table-striped table-hover ">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Назва</th>
+            <th>Дата</th>
+            <th>Прибуток</th>
+            <th>Витрати</th>
+            <th>Чистий прибуток</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in list" ng-click="modify(item);">
+            <td>{{$index + 1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.date | date : 'yyyy-MM-dd'}}</td>
+            <td>{{item.profit}}</td>
+            <td>{{item.cost}}</td>
+            <td>{{item.profitClear}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <hr/>
+    <a href="#" class="btn btn-primary" ng-click="clalculate()">Розрахувати фінансові показники</a>
+    <h3>Скользяще середнє</h3>
+    <table class="table table-striped table-hover ">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Дата</th>
+            <th>Чистий прибуток</th>
+            <th>За два місцяці</th>
+            <th>За три місцяці</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in avarage" ng-click="modify(item);">
+            <td>{{$index + 1}}</td>
+            <td>{{item.date | date : 'yyyy-MM-dd'}}</td>
+            <td>{{item.profitClear}}</td>
+            <td>{{item.two}}</td>
+            <td>{{item.three}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <canvas id="line" class="chart chart-line" chart-data="chartData"
+            chart-labels="labels" chart-series="series" chart-options="options"
+            chart-dataset-override="datasetOverride">
+    </canvas>
+    
+    <h3>Тенденція</h3>
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Чистий прибуток</th>
+                <th>Розрахунок</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in trend" ng-click="modify(item);">
+                <td>{{$index + 1}}</td>
+                <td>{{item.exectualy}}</td>
+                <td>{{item.predicted}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <canvas class="chart chart-line" chart-data="trendChartData"
+            chart-labels="trendLabels" chart-series="seriesTrend" chart-options="optionsTrend"
+            chart-dataset-override="datasetOverrideTrend">
+    </canvas>
+    
+    @*<h3>Рост</h3>
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Чистий прибуток</th>
+                <th>Розрахунок</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in rost" ng-click="modify(item);">
+                <td>{{$index + 1}}</td>
+                <td>{{item.exectualy}}</td>
+                <td>{{item.predicted}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <canvas class="chart chart-line" chart-data="rostChartData"
+            chart-labels="rostLabels" chart-series="seriesTrend" chart-options="optionsTrend"
+            chart-dataset-override="datasetOverrideTrend">
+    </canvas>*@
+</div>

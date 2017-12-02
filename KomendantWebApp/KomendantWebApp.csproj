@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -161,6 +162,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\PeriodInfoController.cs" />
     <Compile Include="Controllers\Api\PersonController.cs" />
     <Compile Include="Controllers\Api\RoomController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -171,9 +173,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\angular-material.min.css" />
+    <Content Include="Content\angular-moment-picker.min.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\main.js" />
+    <Content Include="Content\Views\periodDialog.html" />
     <Content Include="Content\Views\personDialog.html" />
     <Content Include="Content\Views\roomDialog.html" />
     <Content Include="favicon.ico" />
@@ -182,8 +186,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.min.js" />
+    <Content Include="Scripts\angular-chart.min.js" />
     <Content Include="Scripts\angular-material.min.js" />
     <Content Include="Scripts\angular-messages.min.js" />
+    <Content Include="Scripts\angular-moment-picker.min.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -191,6 +197,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -199,6 +206,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\regression.min.js" />
+    <Content Include="Scripts\require.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config" />
@@ -215,6 +225,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Rooms.cshtml" />
     <Content Include="Views\Home\Persons.cshtml" />
+    <Content Include="Views\Home\Period.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

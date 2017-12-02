@@ -19,6 +19,10 @@
                     cfg.CreateMap<PersonDto, Person>()
                         .ForMember(dst => dst.Room, map => map.Ignore());
                     cfg.CreateMap<Person, SimpleDto>();
+
+                    cfg.CreateMap<PeriodInfo, PeriodInfoDto>();
+                    cfg.CreateMap<PeriodInfoDto, PeriodInfo>();
+                    cfg.CreateMap<PeriodInfo, SimpleDto>();
                 });
         }
     }

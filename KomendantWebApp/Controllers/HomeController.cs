@@ -22,5 +22,10 @@ namespace KomendantWebApp.Controllers
         {
             return View();
         }
+
+        public ActionResult Period()
+        {
+            return View();
+        }
     }
 }

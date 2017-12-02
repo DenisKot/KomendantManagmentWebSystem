@@ -20,5 +20,6 @@ namespace Komendant.Data
 
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<Person> Persons { get; set; }
+        public virtual DbSet<PeriodInfo> PeriodInfos { get; set; }
     }
 }
