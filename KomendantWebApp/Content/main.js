@@ -224,7 +224,7 @@ app.controller('PeriodController', ['$scope', '$mdDialog', '$http', '$timeout', 
     $scope.avarage = [];
     $scope.chartData = [];
     $scope.series = ['За два місяці', 'За три місця'];
-    $scope.seriesTrend = ['Ресльний прибуток', 'Зпрогнозований'];
+    $scope.seriesTrend = ['Реальний прибуток', 'Прогнозований'];
     $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
     $scope.options = {
         scales: {
@@ -366,7 +366,13 @@ app.controller('PeriodController', ['$scope', '$mdDialog', '$http', '$timeout', 
         $scope.trendChartData.push(trendSecond);
 
         //// Rost
-        var result2 = regression.exponential(arr);
+        var arr2 = [];
+        for (var v = 0; v < $scope.list.length; v++) {
+            if ($scope.list[v].profitClear > 0) {
+                arr2.push([v + 1, $scope.list[v].profitClear]);
+            }
+        }
+        var result2 = regression.exponential(arr2);
         //"y = ax + b"
         var a2 = result2.equation[0];
         var b2 = result2.equation[1];
@@ -378,7 +384,7 @@ app.controller('PeriodController', ['$scope', '$mdDialog', '$http', '$timeout', 
         for (var k = 0; k < $scope.list.length + 3; k++) {
             var item = {
                 exectualy: k < $scope.list.length ? $scope.list[k].profitClear : null,
-                predicted: a2 * (k + 1) + b2
+                predicted: result2.predict(k + 1)[1]
             }
             $scope.rost.push(item);
             rostFirst.push(item.exectualy);
